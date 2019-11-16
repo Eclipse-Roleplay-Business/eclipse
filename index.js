@@ -1,5 +1,4 @@
 const { Client, Collection } = require("discord.js");
-const { config } = require("dotenv");
 const fs = require("fs");
 
 const client = new Client({
@@ -11,9 +10,6 @@ client.aliases = new Collection();
 
 client.categories = fs.readdirSync("./commands/");
 
-config({
-    path: __dirname + "/.env"
-});
 
 ["command"].forEach(handler => {
     require(`./handlers/${handler}`)(client);
@@ -51,4 +47,4 @@ client.on("message", async message => {
         command.run(client, message, args);
 });
 
-client.login(process.env.TOKEN);
+client.login("NjM5MTkyMTg1Njc3NDE0NDAw.XdBn9w.uUVSdAYze_A_-RQOBl_rJ3u7QoE");
